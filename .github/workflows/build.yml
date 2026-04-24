@@ -15,17 +15,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: "3.10"
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y \
-            build-essential \
-            libffi-dev \
-            libssl-dev \
-            libtinfo6 \
-            zip unzip openjdk-17-jdk
+          sudo apt install -y build-essential libffi-dev libssl-dev libtinfo6 zip unzip openjdk-17-jdk
 
       - name: Install Buildozer
         run: |
