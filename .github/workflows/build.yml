@@ -6,13 +6,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04   # ✅ important fix
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y libtinfo6
+
       - name: Build APK
         uses: digreatbrian/buildozer-action@v1
         with:
-          command: buildozer android debug
+          command: buildozer android debug      
